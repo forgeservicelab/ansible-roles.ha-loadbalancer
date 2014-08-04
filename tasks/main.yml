@@ -17,3 +17,4 @@
   wait_for:
     host: "{{ OS_FLOATIP }}"
     port: 443
+  connection: local
