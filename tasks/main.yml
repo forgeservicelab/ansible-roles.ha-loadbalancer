@@ -1,13 +1,12 @@
 ---
-# Heartbeat seems to not handle haproxy service. Leaving it on.
-#- name: Stop HAProxy service
-#  service:
-#    name: haproxy
-#    state: stopped
-#  notify: restart heartbeat
+- name: Stop HAProxy service
+  service:
+    name: haproxy
+    state: stopped
+  notify: restart heartbeat
 
-#- name: Disable HAProxy service
-#  service:
-#    name: haproxy
-#    enabled: no
-#  notify: restart heartbeat
+- name: Disable HAProxy service
+  service:
+    name: haproxy
+    enabled: no
+  notify: restart heartbeat
