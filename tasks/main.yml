@@ -10,3 +10,8 @@
     name: haproxy
     enabled: no
   notify: restart heartbeat
+
+- name: Wait for haproxy to become ready
+  wait_for:
+    host: "{{ OS_FLOATIP }}"
+    port: 443
