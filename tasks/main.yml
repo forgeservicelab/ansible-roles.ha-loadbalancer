@@ -11,7 +11,7 @@
     enabled: no
   notify: restart heartbeat
 
-- meta: flush _handlers
+- meta: flush_handlers
 
 - name: Wait for haproxy to become ready
   wait_for:
