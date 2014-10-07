@@ -14,8 +14,10 @@
 - meta: flush_handlers
 
 - name: Wait for haproxy to become ready
-  wait_for:
-    host: "{{ OS_FLOATIP }}"
-    port: 443
+  shell: curl -k -L --head https://{{ OS_FLOATIP }}
+  register: result
+  until: result.stdout.find("200 OK") != -1
+  retries: 60
+  delay: 5
   connection: local
   sudo: false
