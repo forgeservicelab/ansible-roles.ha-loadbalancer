@@ -13,7 +13,7 @@
 
 - meta: flush_handlers
 
-- name: Wait for haproxy to become ready
+- name: Wait for the site to be ready
   shell: curl -k -L --head https://{{ OS_FLOATIP }}
   register: result
   until: result.stdout.find("200 OK") != -1
@@ -21,3 +21,5 @@
   delay: 5
   connection: local
   sudo: false
+  tags:
+    - redeploy
